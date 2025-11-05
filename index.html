@@ -8,8 +8,8 @@
     <style>
         /* Variables y Reseteo */
         :root {
-            --color-primary: #ff4500; /* Naranja Brillante para el botón */
-            --color-secondary: #008080; /* Teal para detalles */
+            --color-primary: #ff4500;
+            --color-secondary: #008080;
             --color-text: #333;
             --color-bg: #f5f5f5;
         }
@@ -34,25 +34,51 @@
             text-align: center;
         }
         
-        /* 1. Header con Imagen Responsiva */
+        /* 1. Header con IMAGEN Responsiva */
         .header {
             width: 100%;
+            /* 🔑 REEMPLAZAR: IMAGEN móvil (vertical) */
             background-image: url('./imágenes/imagen_home-01.png'); 
             background-size: cover;
             background-position: center;
-            height: 60vh; 
+            height: 60vh; /* Alto para móvil (vertical) */
+            position: relative; /* Clave para posicionar el botón de audio */
+            overflow: hidden;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         /* Media Query para Web (Escritorio/Tablet grande) */
         @media (min-width: 768px) {
             .header {
+                /* 🔑 REEMPLAZAR: IMAGEN web (horizontal) */
                 background-image: url('./imágenes/imagen_home-02.png'); 
-                height: 500px;
+                height: 500px; /* Alto para web (horizontal) */
             }
         }
 
-        /* --- 2. Contador Regresivo --- */
+        /* 🔑 ESTILOS DEL BOTÓN DE AUDIO */
+        .audio-button {
+            position: absolute;
+            bottom: 15px; /* Separación del borde inferior */
+            right: 15px; /* Separación del borde derecho */
+            z-index: 10;
+            background-color: rgba(0, 128, 128, 0.7); /* Teal semi-transparente */
+            color: white;
+            border: 2px solid white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            transition: background-color 0.3s;
+            font-size: 0.9em;
+        }
+
+        .audio-button:hover {
+            background-color: var(--color-secondary);
+        }
+
+        /* --- 2. Contador Regresivo (Responsividad Ajustada) --- */
         .countdown-section {
             padding: 40px 20px;
             background-color: #fff;
@@ -76,7 +102,7 @@
             background-color: var(--color-bg);
             padding: 10px 5px; 
             border-radius: 8px;
-            width: 23%; 
+            width: 23%; /* Responsividad clave para móvil */
             min-width: 60px; 
         }
 
@@ -93,7 +119,6 @@
             margin-top: 5px;
         }
         
-        /* Ajuste para Pantallas Grandes (Mayor a 768px) */
         @media (min-width: 768px) {
             .countdown-item {
                 padding: 15px; 
@@ -172,7 +197,7 @@
             background-color: #006666;
         }
 
-        /* --- 5. Logos Sponsors --- */
+        /* --- 5. Logos Sponsors (Tamaño Aumentado) --- */
         .sponsors-section {
             border-top: 1px solid #ddd;
             padding: 30px 0;
@@ -188,7 +213,7 @@
         }
 
         .sponsor-logo {
-            max-width: 200px; /* Tamaño de logos aumentado */
+            max-width: 200px; 
             height: auto;
             opacity: 0.8;
             transition: opacity 0.3s;
@@ -209,12 +234,18 @@
 </head>
 <body>
 
-    <header class="header"></header>
+    <header class="header">
+        <button id="toggle-audio-button" class="audio-button">▶️ Iniciar Música</button>
+    </header>
+
+    <audio id="background-music" loop>
+        <source src="./invitación-fiesta.mp3" type="audio/mpeg">
+    </audio>
 
     <main class="content">
 
         <section class="info">
-            <h1>5 de diciembre - 9 pm</h1>
+            <h1>Viernes 5 de diciembre - 9 pm</h1>
             <p>Preparate para una noche inolvidable de música y diversión.</p>
         </section>
 
@@ -252,10 +283,10 @@
             <p style="font-size: 1.1em; font-weight: bold; margin: 10px 0;">Quinta Doña Elvira - Callejón Famatina 1.783 - Rodeo de la Cruz. 5525, Mendoza</p>
             
             <div class="map-embed">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4007.188363714751!2d-68.76479772356814!3d-32.93064477108194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0dcac1b78d11%3A0x401ba2de0f77a930!2sQuinta%20Do%C3%B1a%20Elvira!5e1!3m2!1ses-419!2sar!4v1762272698849!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4007.188158561947!2d-68.7622228!3d-32.930649300000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0dcac1b78d11%3A0x401ba2de0f77a930!2sQuinta%20Do%C3%B1a%20Elvira!5e1!3m2!1ses-419!2sar!4v1762351670435!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             
-            <a href="[https://maps.app.goo.gl/g59g8S7ZpnyWsW4a9]" target="_blank" class="button-map">
+            <a href="https://maps.app.goo.gl/dfPZCu2z5cAsgZ2D7" target="_blank" class="button-map">
                 Abrir Ubicación en Google Maps
             </a>
         </section>
@@ -280,21 +311,28 @@
         const hoursEl = document.getElementById('hours');
         const minutesEl = document.getElementById('minutes');
         const secondsEl = document.getElementById('seconds');
+        
+        // Elementos de Audio
+        const music = document.getElementById('background-music');
+        const toggleButton = document.getElementById('toggle-audio-button');
+        let isPlaying = false;
 
+        // --- FUNCION DE CONTADOR ---
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = eventDate - now;
 
-            // Cálculos de tiempo
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const MS_PER_DAY = 1000 * 60 * 60 * 24;
+            const MS_PER_HOUR = 1000 * 60 * 60;
+            const MS_PER_MINUTE = 1000 * 60;
 
-            // Formatear para que siempre tenga dos dígitos
+            const days = Math.floor(distance / MS_PER_DAY);
+            const hours = Math.floor((distance % MS_PER_DAY) / MS_PER_HOUR);
+            const minutes = Math.floor((distance % MS_PER_HOUR) / MS_PER_MINUTE);
+            const seconds = Math.floor((distance % MS_PER_MINUTE) / 1000);
+
             const formatTime = (time) => String(time).padStart(2, '0');
 
-            // Actualizar el DOM y detener si ya pasó la fecha
             if (distance > 0) {
                 daysEl.innerHTML = formatTime(days);
                 hoursEl.innerHTML = formatTime(hours);
@@ -306,7 +344,31 @@
             }
         }
 
-        // Actualizar el contador inmediatamente y luego cada segundo
+        // --- FUNCION DE CONTROL DE AUDIO ---
+        toggleButton.addEventListener('click', () => {
+            if (isPlaying) {
+                music.pause();
+                toggleButton.innerHTML = '▶️ Iniciar Música';
+                toggleButton.style.backgroundColor = 'rgba(0, 128, 128, 0.7)'; // Teal
+            } else {
+                const playPromise = music.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        toggleButton.innerHTML = '⏸️ Pausar Música';
+                        toggleButton.style.backgroundColor = 'rgba(255, 69, 0, 0.7)'; // Naranja
+                        isPlaying = true;
+                    }).catch(error => {
+                        console.log("La reproducción de audio fue impedida por el navegador.");
+                        alert("El navegador requiere una interacción previa. Haz clic nuevamente para iniciar el audio.");
+                        isPlaying = false;
+                    });
+                }
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Iniciar Contador
         updateCountdown();
         const countdownInterval = setInterval(updateCountdown, 1000);
     </script>
