@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación | 05 Diciembre 2025</title>
+    <title>Invitación</title>
     
     <style>
         /* Variables y Reseteo */
@@ -37,7 +37,6 @@
         /* 1. Header con Imagen Responsiva */
         .header {
             width: 100%;
-            /* REEMPLAZAR: Imagen móvil */
             background-image: url('./imágenes/imagen_home-01.png'); 
             background-size: cover;
             background-position: center;
@@ -48,13 +47,12 @@
         /* Media Query para Web (Escritorio/Tablet grande) */
         @media (min-width: 768px) {
             .header {
-                /* REEMPLAZAR: Imagen web */
                 background-image: url('./imágenes/imagen_home-02.png'); 
                 height: 500px;
             }
         }
 
-        /* 2. Contador Regresivo */
+        /* --- 2. Contador Regresivo --- */
         .countdown-section {
             padding: 40px 20px;
             background-color: #fff;
@@ -68,33 +66,46 @@
             justify-content: center;
             gap: 20px;
             margin-top: 25px;
-            flex-wrap: wrap;
         }
 
+        /* Estilos del ítem (Optimizados para Mobile por defecto) */
         .countdown-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             background-color: var(--color-bg);
-            padding: 15px;
+            padding: 10px 5px; 
             border-radius: 8px;
-            min-width: 70px;
+            width: 23%; 
+            min-width: 60px; 
         }
 
         .countdown-item span {
-            font-size: 2.5em;
+            font-size: 2em; 
             font-weight: bold;
             color: var(--color-primary);
         }
 
         .countdown-item label {
-            font-size: 0.9em;
+            font-size: 0.8em; 
             text-transform: uppercase;
             color: #666;
             margin-top: 5px;
         }
+        
+        /* Ajuste para Pantallas Grandes (Mayor a 768px) */
+        @media (min-width: 768px) {
+            .countdown-item {
+                padding: 15px; 
+                width: auto; 
+                min-width: 80px;
+            }
+            .countdown-item span {
+                font-size: 2.5em; 
+            }
+        }
 
-        /* 3. Botón de Confirmación (RSVP) */
+        /* --- 3. Botón de Confirmación (RSVP) --- */
         .rsvp-section {
             margin: 30px 0;
         }
@@ -118,7 +129,7 @@
             transform: translateY(-3px);
         }
 
-        /* 4. Ubicación con Mapa Incrustado Responsivo */
+        /* --- 4. Ubicación con Mapa Incrustado Responsivo --- */
         .location-section {
             padding: 40px 20px;
             background-color: #fff;
@@ -128,9 +139,8 @@
         }
         
         .map-embed {
-            /* Contenedor responsivo 16:9 */
             position: relative;
-            padding-bottom: 56.25%; /* 9/16 */
+            padding-bottom: 56.25%; 
             height: 0;
             overflow: hidden;
             max-width: 100%;
@@ -162,7 +172,7 @@
             background-color: #006666;
         }
 
-        /* 5. Logos Sponsors */
+        /* --- 5. Logos Sponsors --- */
         .sponsors-section {
             border-top: 1px solid #ddd;
             padding: 30px 0;
@@ -178,7 +188,7 @@
         }
 
         .sponsor-logo {
-            max-width: 150px;
+            max-width: 200px; /* Tamaño de logos aumentado */
             height: auto;
             opacity: 0.8;
             transition: opacity 0.3s;
@@ -242,7 +252,7 @@
             <p style="font-size: 1.1em; font-weight: bold; margin: 10px 0;">Quinta Doña Elvira - Callejón Famatina 1.783 - Rodeo de la Cruz. 5525, Mendoza</p>
             
             <div class="map-embed">
-                <<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4007.188363714751!2d-68.76479772356814!3d-32.93064477108194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0dcac1b78d11%3A0x401ba2de0f77a930!2sQuinta%20Do%C3%B1a%20Elvira!5e1!3m2!1ses-419!2sar!4v1762272698849!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4007.188363714751!2d-68.76479772356814!3d-32.93064477108194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0dcac1b78d11%3A0x401ba2de0f77a930!2sQuinta%20Do%C3%B1a%20Elvira!5e1!3m2!1ses-419!2sar!4v1762272698849!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             
             <a href="[https://maps.app.goo.gl/g59g8S7ZpnyWsW4a9]" target="_blank" class="button-map">
@@ -253,8 +263,8 @@
         <footer class="sponsors-section">
             <h2>Invitan</h2>
             <div class="sponsors-logos">
-                <img src="/imágenes/imagen_home-03.png" alt="Sponsor Logo 1" class="sponsor-logo">
-                <img src="/imágenes/imagen_home-04.png" alt="Sponsor Logo 2" class="sponsor-logo">
+                <img src="./imágenes/imagen_home-03.png" alt="Sponsor Logo 1" class="sponsor-logo">
+                <img src="./imágenes/imagen_home-04.png" alt="Sponsor Logo 2" class="sponsor-logo">
             </div>
             <p class="copyright">Invitación | La Cooperativa Empresa Eléctrica de Godoy Cruz y Grupo Cooperativa - Medios de Comunicación</p>
         </footer>
@@ -293,8 +303,6 @@
             } else {
                 clearInterval(countdownInterval);
                 document.getElementById("countdown").innerHTML = "<h2>🎉 ¡LA FIESTA YA EMPEZÓ! ¡Te esperamos!</h2>";
-                // Opcional: Ocultar el botón de RSVP
-                // document.querySelector('.rsvp-section').style.display = 'none';
             }
         }
 
